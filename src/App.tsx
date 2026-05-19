@@ -27,7 +27,7 @@ export default function App() {
   // FETCH ITEMS
   async function fetchItems() {
     try {
-      const response = await fetch("http://localhost:5000/items");
+      const response = await fetch("https://welcome-backend-up4w.onrender.com/");
 
       const data = await response.json();
 
@@ -57,7 +57,7 @@ export default function App() {
 
     if (name.trim() === "") return;
 
-    await fetch("http://localhost:5000/items", {
+    await fetch("https://welcome-backend-up4w.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export default function App() {
 
   // DELETE ITEM
   async function handleDeleteItem(id: number) {
-    await fetch(`http://localhost:5000/items/${id}`, {
+    await fetch(`https://welcome-backend-up4w.onrender.com//${id}`, {
       method: "DELETE",
     });
 
@@ -97,7 +97,7 @@ export default function App() {
 
     if (!item) return;
 
-    await fetch(`http://localhost:5000/items/${id}/quantity`, {
+    await fetch(`https://welcome-backend-up4w.onrender.com//${id}/quantity`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -116,7 +116,7 @@ export default function App() {
 
     if (!item || item.quantity === 0) return;
 
-    await fetch(`http://localhost:5000/items/${id}/quantity`, {
+    await fetch(`https://welcome-backend-up4w.onrender.com//${id}/quantity`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
