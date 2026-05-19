@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f7f3ec;
+    color: #1f1b16;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.input {
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid #e5d8c6;
+    background: #fffdf8;
+    padding: 0.75rem 1.1rem;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #b9904f;
+}
+
+.card {
+  border-radius: 1.8rem;
+  border: 1px solid #e4d6c3;
+  background: linear-gradient(145deg, #fffdf8, #f5efe3);
+  box-shadow: 0 18px 45px rgba(72, 55, 32, 0.06);
+}
