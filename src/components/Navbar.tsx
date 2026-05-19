@@ -49,7 +49,7 @@ export default function Navbar({
 
           <div>
             <h1 className="text-lg tracking-tight">
-              UsherStock
+              Welcome Home Inventory
             </h1>
 
             <p
