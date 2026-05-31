@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Welcome Home Inventory Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project is an inventory management application built to solve storage issues for local church team.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Screenshots
 
-## React Compiler
+<img width="1920" height="869" alt="ScreenShot Tool -20260531213057" src="https://github.com/user-attachments/assets/cd831abf-4684-4fc2-a419-1415694eead4" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Feature 1: You can add and edit items. 
+- Feature 2: You can delete items and can generate reports.
+- Feature 3: All of the items are stored on a deployed database.
+- Responsive design
+- Cross-browser compatible
+
+## Technologies Used
+
+- **HTML5** - Structure and content
+- **CSS3** - Styling and layout
+- **JavaScript** - Interactivity and functionality
+
+## Installation
+
+1. Clone the repository:
+```bash
+git@github.com:kingcollinsdev/welcome-frontend.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Navigate to the project directory:
+```bash
+cd welcome-frontend
 ```
+
+3. Open `index.html` in your browser or use a local server:
+```bash
+# Using Python 3
+python -m http.server 8000
+
+# Using Node.js (http-server)
+npx http-server
+```
+
+## Usage
+This updates the items that are stored in the database.
+await fetch(`https://welcome-backend-up4w.onrender.com/items/${id}/quantity`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        quantity: item.quantity + 1,
+      }),
+    });
+
+```javascript
+// Example code snippet
+
+```
+
+## Project Structure
+
+```
+project-name/
+│
+├── index.html          # Main HTML file
+├── css/
+│   └── style.css       # Main stylesheet
+├── js/
+│   └── script.js       # Main JavaScript file
+├── images/             # Image assets
+└── README.md           # Project documentation
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+
+## Contact
+
+Your Name - Collins Wachira - collinswachira2004@gmail.com
+
+Project Link: [https://welcome-frontend-bice.vercel.app//](https://github.com/kingcollinsdev/welcome-frontend.git)
+
+
