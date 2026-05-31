@@ -3,10 +3,16 @@ type FormFieldProps = {
   children: React.ReactNode;
 };
 
-export default function FormField({ label, children }: FormFieldProps) {
+export default function FormField({
+  label,
+  children,
+}: FormFieldProps) {
   return (
-    <label className="space-y-2">
-      <span className="text-sm text-[#6f6559]">{label}</span>
+    <label className="flex flex-col gap-3">
+      <span className="text-sm font-black uppercase tracking-wide text-black/55">
+        {label}
+      </span>
+
       {children}
     </label>
   );

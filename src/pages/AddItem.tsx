@@ -28,22 +28,53 @@ export default function AddItem({
   onSubmit,
 }: AddItemProps) {
   return (
-    <section className="space-y-6">
-      <div>
-        <h2 className="font-serif text-4xl">Add Item</h2>
-        <p className="mt-2 text-[#7c7164]">
-          Add a new supply item to the inventory.
-        </p>
+    <section className="space-y-8">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="mb-3 text-sm font-black uppercase tracking-tight">
+            Team Inventory
+          </p>
+
+          <h2 className="poster-title text-[4rem] uppercase leading-[0.9] md:text-[5.5rem]">
+            Add <br />
+            New <br />
+            Item
+          </h2>
+
+          <p className="mt-5 max-w-md text-lg font-medium text-black/70">
+            Keep the team prepared for every service.
+          </p>
+        </div>
+
+        <div className="rounded-[28px] bg-[#f7b718] p-6 lg:max-w-sm">
+          <p className="text-sm font-black uppercase text-black/70">
+            Quick Tip
+          </p>
+
+          <h3 className="mt-3 text-3xl font-black uppercase leading-none">
+            Organize
+            <br />
+            By Team.
+          </h3>
+
+          <p className="mt-4 text-sm font-medium text-black/70">
+            Use categories and locations consistently so that the team can find
+            items quickly before service.
+          </p>
+        </div>
       </div>
 
-      <form onSubmit={onSubmit} className="rounded-3xl border border-[#eadfce] bg-white p-6 shadow-sm">
-        <div className="grid gap-4 md:grid-cols-2">
+      <form
+        onSubmit={onSubmit}
+        className="app-panel space-y-6 p-6 md:p-8"
+      >
+        <div className="grid gap-5 md:grid-cols-2">
           <FormField label="Item Name">
             <input
               value={name}
               onChange={(event) => setName(event.target.value)}
               placeholder="Welcome Cards"
-              className="input"
+              className="rounded-2xl border border-black/10 bg-[#fff8eb] px-4 py-4 text-sm font-medium outline-none transition focus:border-[#f7b718]"
             />
           </FormField>
 
@@ -51,7 +82,7 @@ export default function AddItem({
             <select
               value={category}
               onChange={(event) => setCategory(event.target.value)}
-              className="input"
+              className="rounded-2xl border border-black/10 bg-[#fff8eb] px-4 py-4 text-sm font-medium outline-none transition focus:border-[#f7b718]"
             >
               <option>Cards</option>
               <option>Communion</option>
@@ -68,7 +99,7 @@ export default function AddItem({
               type="number"
               value={quantity}
               onChange={(event) => setQuantity(Number(event.target.value))}
-              className="input"
+              className="rounded-2xl border border-black/10 bg-[#fff8eb] px-4 py-4 text-sm font-medium outline-none transition focus:border-[#f7b718]"
             />
           </FormField>
 
@@ -76,8 +107,10 @@ export default function AddItem({
             <input
               type="number"
               value={minimumRequired}
-              onChange={(event) => setMinimumRequired(Number(event.target.value))}
-              className="input"
+              onChange={(event) =>
+                setMinimumRequired(Number(event.target.value))
+              }
+              className="rounded-2xl border border-black/10 bg-[#fff8eb] px-4 py-4 text-sm font-medium outline-none transition focus:border-[#f7b718]"
             />
           </FormField>
 
@@ -87,18 +120,24 @@ export default function AddItem({
                 value={location}
                 onChange={(event) => setLocation(event.target.value)}
                 placeholder="Ushering Cabinet"
-                className="input"
+                className="rounded-2xl border border-black/10 bg-[#fff8eb] px-4 py-4 text-sm font-medium outline-none transition focus:border-[#f7b718]"
               />
             </FormField>
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="mt-6 rounded-2xl bg-[#1f1b16] px-5 py-3 text-sm font-medium text-white hover:bg-black"
-        >
-          Save Item
-        </button>
+        <div className="flex items-center justify-between border-t border-black/10 pt-6">
+          <p className="text-sm font-medium text-black/50">
+            Every item helps the team stay ready for service.
+          </p>
+
+          <button
+            type="submit"
+            className="rounded-2xl bg-black px-6 py-4 text-sm font-black uppercase tracking-wide text-white transition hover:opacity-85"
+          >
+            Save Item →
+          </button>
+        </div>
       </form>
     </section>
   );

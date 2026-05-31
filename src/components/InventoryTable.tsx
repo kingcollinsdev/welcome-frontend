@@ -8,6 +8,7 @@ type InventoryTableProps = {
   onDelete: (id: number) => void;
   onIncrease: (id: number) => void;
   onDecrease: (id: number) => void;
+  onEdit: (item: Item) => void;
 };
 
 export default function InventoryTable({
@@ -16,45 +17,86 @@ export default function InventoryTable({
   onDelete,
   onIncrease,
   onDecrease,
+  onEdit,
 }: InventoryTableProps) {
   return (
-    <div className="hidden overflow-hidden rounded-3xl border border-[#eadfce] bg-white shadow-sm md:block">
+    <div className="app-panel hidden overflow-hidden md:block">
       <table className="w-full text-left text-sm">
-        <thead className="border-b border-[#eadfce] text-[#7c7164]">
+        <thead className="bg-[#111111] text-white">
           <tr>
-            <th className="p-4 font-medium">Item</th>
-            <th className="p-4 font-medium">Category</th>
-            <th className="p-4 font-medium">Quantity</th>
-            <th className="p-4 font-medium">Status</th>
-            <th className="p-4 font-medium">Actions</th>
+            <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.18em]">
+              Item
+            </th>
+            <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.18em]">
+              Category
+            </th>
+            <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.18em]">
+              Quantity
+            </th>
+            <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.18em]">
+              Status
+            </th>
+            <th className="px-5 py-4 text-xs font-black uppercase tracking-[0.18em]">
+              Actions
+            </th>
           </tr>
         </thead>
 
         <tbody>
           {items.map((item) => (
-            <tr key={item.id} className="border-b border-[#f1e8da] last:border-none">
-              <td className="p-4">
-                <p className="font-medium">{item.name}</p>
-                <p className="text-xs text-[#8a8175]">{item.location}</p>
+            <tr
+              key={item.id}
+              className="border-b border-black/10 bg-[#fff8eb]/70 last:border-none hover:bg-white/70"
+            >
+              <td className="px-5 py-5">
+                <p className="text-base font-black uppercase tracking-tight">
+                  {item.name}
+                </p>
+                <p className="mt-1 text-xs font-medium text-black/50">
+                  {item.location}
+                </p>
               </td>
 
-              <td className="p-4 text-[#7c7164]">{item.category}</td>
-
-              <td className="p-4 text-[#7c7164]">
-                {item.quantity} / {item.minimumRequired}
+              <td className="px-5 py-5">
+                <span className="rounded-full bg-[#f7b718] px-3 py-1 text-[0.7rem] font-black uppercase text-black">
+                  {item.category}
+                </span>
               </td>
 
-              <td className="p-4">
+              <td className="px-5 py-5">
+                <p className="text-sm font-black text-black">
+                  {item.quantity}
+                  <span className="font-medium text-black/45">
+                    {" "}
+                    / {item.minimumRequired}
+                  </span>
+                </p>
+              </td>
+
+              <td className="px-5 py-5">
                 <StockBadge status={getStatus(item)} />
               </td>
 
-              <td className="p-4">
-                <div className="flex gap-2">
-                  <SmallButton onClick={() => onDecrease(item.id)}>-</SmallButton>
-                  <SmallButton onClick={() => onIncrease(item.id)}>+</SmallButton>
+              <td className="px-5 py-5">
+                <div className="flex flex-wrap gap-2">
+                  <SmallButton onClick={() => onDecrease(item.id)}>
+                    -
+                  </SmallButton>
+
+                  <SmallButton onClick={() => onIncrease(item.id)}>
+                    +
+                  </SmallButton>
+
+                  <button
+                    onClick={() => onEdit(item)}
+                    className="rounded-full bg-black px-4 py-2 text-xs font-black uppercase text-white transition hover:opacity-80"
+                  >
+                    Edit
+                  </button>
+
                   <button
                     onClick={() => onDelete(item.id)}
-                    className="rounded-xl bg-red-50 px-3 py-2 text-xs text-red-600 hover:bg-red-100"
+                    className="rounded-full bg-[#e73131] px-4 py-2 text-xs font-black uppercase text-white transition hover:opacity-80"
                   >
                     Delete
                   </button>

@@ -1,21 +1,31 @@
 type StatCardProps = {
-    title: string;
-    value: number;
-    description: string;
+  title: string;
+  value: number | string;
+  description: string;
+  color: string;
+  icon: string;
 };
 
 export default function StatCard({
-    title,
-    value,
-    description,
+  title,
+  value,
+  description,
+  color,
+  icon,
 }: StatCardProps) {
-    return (
-        <div className="rounded-3xl border border-[#d9cfbf] bg-[#fffaf2] p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] ring-1 ring-white/60 ">
-            <p className="text-sm text-[#7c7164]">{title}</p>
+  return (
+    <div className={`min-h-45 rounded-[28px] p-6 ${color}`}>
+      <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-white/85 text-2xl text-black">
+        {icon}
+      </div>
 
-            <h3 className="mt-2 font-serif text-4xl text-[#1f1b16]">{value}</h3>
+      <p className="text-5xl font-black leading-none">{value}</p>
 
-            <p className="mt-1 text-xs text-[#8a8175]">{description}</p>
-        </div>
-    )
+      <h3 className="mt-3 text-sm font-black uppercase tracking-tight">
+        {title}
+      </h3>
+
+      <p className="mt-1 text-sm opacity-90">{description}</p>
+    </div>
+  );
 }

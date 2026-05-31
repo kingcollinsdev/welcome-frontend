@@ -11,114 +11,71 @@ export default function Navbar({
 }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 hidden px-6 pt-6 md:block">
-      <div
-        className="
-          mx-auto
-          flex
-          max-w-6xl
-          items-center
-          justify-between
-          rounded-full
-          border
-          border-[#e5d8c6]
-          bg-[#fffaf2]/90
-          px-8
-          py-4
-          shadow-[0_8px_30px_rgba(0,0,0,0.04)]
-          backdrop-blur-xl
-        "
-      >
-        {/* LOGO */}
-        <div className="flex items-center gap-4">
-          <div
-            className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              bg-[#171411]
-              text-sm
-              font-semibold
-              text-white
-            "
-          >
-            US
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-[30px] bg-[#111111] px-8 py-5 text-white">
+        
+        {/* LEFT */}
+        <div className="flex items-center gap-5">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f7b718] text-lg font-black text-black">
+            WH
           </div>
 
           <div>
-            <h1 className="text-lg tracking-tight">
-              Welcome Home Inventory
+            <h1 className="text-xl font-black uppercase tracking-tight">
+              Welcome Home
             </h1>
 
-            <p
-              className="
-                text-[0.65rem]
-                uppercase
-                tracking-[0.35em]
-                text-[#7c7164]
-              "
-            >
-              Inventory System
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.35em] text-white/50">
+              Team Inventory
             </p>
           </div>
         </div>
 
-        {/* NAV LINKS */}
-        <nav className="flex items-center gap-10">
+        {/* CENTER NAV */}
+        <nav className="flex items-center gap-3 rounded-full bg-white/5 p-2">
           {pages.map((page) => (
             <button
               key={page}
               onClick={() => setActivePage(page)}
               className={`
-                relative
-                text-sm
+                rounded-full
+                px-5
+                py-3
+                text-xs
+                font-black
                 uppercase
-                tracking-[0.28em]
+                tracking-[0.18em]
                 transition
                 duration-300
                 ${
                   activePage === page
-                    ? "text-[#171411]"
-                    : "text-[#7c7164] hover:text-[#171411]"
+                    ? "bg-[#f7b718] text-black"
+                    : "text-white/70 hover:bg-white/10 hover:text-white"
                 }
               `}
             >
               {page}
-
-              {activePage === page && (
-                <div
-                  className="
-                    absolute
-                    -bottom-2
-                    left-0
-                    height-[2px]
-                    w-full
-                    rounded-full
-                    bg-[#b9904f]
-                  "
-                />
-              )}
             </button>
           ))}
         </nav>
 
-        {/* ACTION BUTTON */}
+        {/* RIGHT BUTTON */}
         <button
           onClick={() => setActivePage("Add Item")}
           className="
             rounded-full
-            bg-[#171411]
+            bg-[#f7b718]
             px-6
             py-3
             text-sm
-            text-white
+            font-black
+            uppercase
+            tracking-wide
+            text-black
             transition
             hover:scale-[1.02]
           "
         >
-          Add Item
+          + Add Item
         </button>
       </div>
     </header>
